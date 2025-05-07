@@ -195,55 +195,64 @@ body{
     transform: translateX(200%);
 }
 
+
+
+
+
+
+
+
+
+
+
 body {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    background: linear-gradient(to top, #2e004f 0%, #000000 60%);
-    overflow: hidden;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background: linear-gradient(to top, #2e004f 0%, #000000 60%);
+  overflow: hidden;
+}
+
+.stars, .shooting-stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: linear-gradient(45deg, #ffffff, #ffccff, #99ccff);
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: twinkle 2s infinite ease-in-out alternate;
+}
+
+@keyframes twinkle {
+  0% { transform: scale(1); opacity: 0.5; }
+  100% { transform: scale(1.5); opacity: 1; }
+}
+
+.shooting-star {
+  position: absolute;
+  width: 150px;
+  height: 2px;
+  background: linear-gradient(to right, white, rgba(255, 255, 255, 0));
+  opacity: 0;
+  transform: rotate(-30deg);
+  animation: shoot 1.5s linear infinite;
+}
+
+@keyframes shoot {
+  0% {
+    opacity: 1;
+    transform: translateX(0) translateY(0) rotate(-30deg);
   }
-  
-  .stars, .shooting-stars {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-  
-  .star {
-    position: absolute;
-    width: 2px;
-    height: 2px;
-    background: linear-gradient(45deg, #ffffff, #ffccff, #99ccff);
-    border-radius: 50%;
-    opacity: 0.8;
-    animation: twinkle 2s infinite ease-in-out alternate;
-  }
-  
-  @keyframes twinkle {
-    0% { transform: scale(1); opacity: 0.5; }
-    100% { transform: scale(1.5); opacity: 1; }
-  }
-  
-  .shooting-star {
-    position: absolute;
-    width: 150px;
-    height: 2px;
-    background: linear-gradient(to right, white, rgba(255, 255, 255, 0));
+  100% {
     opacity: 0;
-    transform: rotate(-30deg);
-    animation: shoot 1.5s linear infinite;
+    transform: translateX(-600px) translateY(200px) rotate(-30deg);
   }
-  
-  @keyframes shoot {
-    0% {
-      opacity: 1;
-      transform: translateX(0) translateY(0) rotate(-30deg);
-    }
-    100% {
-      opacity: 0;
-      transform: translateX(-600px) translateY(200px) rotate(-30deg);
-    }
-  }
-  
+}
